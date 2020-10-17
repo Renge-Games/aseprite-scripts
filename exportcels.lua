@@ -6,7 +6,7 @@ local ymin = 100000
 local processedImgs = 0
 for key,value in ipairs(cels)
 do
-	processedImgs += 1
+	processedImgs = processedImgs + 1
 	if(value.bounds.width + value.position.x > xmax)
 	then
 		xmax = value.bounds.width + value.position.x
@@ -37,14 +37,14 @@ currentLowestIndex = 100000
 for key,value in ipairs(cels)
 do
 	layerIndex = value.layer.stackIndex
-	if(layerIndex > lastIndex && layerIndex < currentLowestIndex)
+	if(layerIndex > lastIndex and layerIndex < currentLowestIndex)
 	then
 		currentLowestIndex = layerIndex
 	end
 end
 
 lastIndex = currentLowestIndex
-processedImgs -= 1
+processedImgs = processedImgs - 1
 
 for key,value in ipairs(cels)
 do
